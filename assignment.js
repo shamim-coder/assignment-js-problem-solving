@@ -1,21 +1,26 @@
 // task 01
-
 function anaToVori(ana) {
-    let vori = ana / 16;
-    return vori;
+    if (ana < 0 || typeof ana != "number") {
+        return "input valid and positive number";
+    } else {
+        let vori = ana / 16;
+        return vori;
+    }
 }
 
 // task 02
-
 function pandaCost(singaraQuantity, samosaQuantity, jalebiQuantity) {
     if (arguments.length != 3) {
         return "input singara's, samosa's and jalebi's quantity separate by ','";
     } else if (
         typeof singaraQuantity != "number" ||
+        singaraQuantity < 0 ||
         typeof samosaQuantity != "number" ||
-        typeof jalebiQuantity != "number"
+        samosaQuantity < 0 ||
+        typeof jalebiQuantity != "number" ||
+        jalebiQuantity < 0
     ) {
-        return "only input number";
+        return "input valid and positive number";
     } else {
         const singaraPrice = 7;
         const samosaPrice = 10;
@@ -31,10 +36,8 @@ function pandaCost(singaraQuantity, samosaQuantity, jalebiQuantity) {
         return totalPrice;
     }
 }
-console.log(pandaCost(8, 4, 4));
 
 // task 03
-
 function picnicBudget(numberOfTraveler) {
     if (numberOfTraveler < 0 || typeof numberOfTraveler != "number") {
         return "input valid and positive number";
@@ -57,19 +60,18 @@ function picnicBudget(numberOfTraveler) {
 }
 
 // task 04
-
 function oddFriend(friends) {
     if (typeof friends != "object") {
         return "Input only friends list";
     } else {
         for (let i = 0; i < friends.length; i++) {
             if (typeof friends[i] != "string") {
-                return "input only string";
+                return "input only the string name";
             } else if (friends[i].length % 2 != 0) {
                 let friend = friends[i];
                 return friend;
             }
         }
-        return "you have't any odd friend";
+        return "you have no odd friend";
     }
 }
